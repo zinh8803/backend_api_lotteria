@@ -90,7 +90,36 @@ const getallproductsbycategory = async (req, res) => {
         });
     }
 };
+const getallproductsbybestseller = async (req, res) => {
+    try {
 
+        const [result] = await db.execute(
+            `
+             select * from products where category_id = 20
+            `,
+        );
+
+        if (result.length === 0) {
+            return res.status(404).json({
+                status: 404,
+                message: "Không tìm thấy sản phẩm",
+                data: null
+            });
+        }
+
+        res.status(200).json({
+            status: 200,
+            message: "Lấy thông tin sản phẩm thành công",
+            data: result
+        });
+    } catch (error) {
+        res.status(500).json({
+            status: 500,
+            message: error.message,
+            data: null
+        });
+    }
+};
 const getProductById = async (req, res) => {
     try {
         const { id } = req.params;
@@ -309,5 +338,6 @@ module.exports = {
     updateProduct,
     deleteProduct,
     getallproductsbycategory,
-    searchProductsByName
+    searchProductsByName,
+    getallproductsbybestseller
 };
