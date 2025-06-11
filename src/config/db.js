@@ -8,7 +8,7 @@ const db = mysql2.createPool({
     port: process.env.DB_PORT,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
-
+    SSL: process.env.DB_SSL,
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0,
