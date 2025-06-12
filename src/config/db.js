@@ -14,9 +14,9 @@ const config = {
     port: process.env.DB_PORT,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
-    ssl: process.env.DB_SSL === 'true' ? {
-        rejectUnauthorized: true
-    } : false,
+    // ssl: process.env.DB_SSL === 'true' ? {
+    //     rejectUnauthorized: true
+    // } : false,
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
