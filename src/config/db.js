@@ -4,9 +4,9 @@ const path = require('path');
 require("dotenv").config();
 
 const mysql2 = require('mysql2/promise');
-const caPath = path.resolve(__dirname, '../../certs/ca.pem');
+// const caPath = path.resolve(__dirname, '../../certs/ca.pem');
 
-const DB_SSL = process.env.DB_SSL === 'true';
+// const DB_SSL = process.env.DB_SSL === 'true';
 
 const config = {
     host: process.env.DB_HOST,
@@ -19,12 +19,12 @@ const config = {
     queueLimit: 0
 };
 
-if (DB_SSL) {
-    config.ssl = {
-        ca: fs.readFileSync(caPath),
-        rejectUnauthorized: true,
-    };
-}
+// if (DB_SSL) {
+//     config.ssl = {
+//         ca: fs.readFileSync(caPath),
+//         rejectUnauthorized: true,
+//     };
+// }
 
 const db = mysql2.createPool(config);
 
