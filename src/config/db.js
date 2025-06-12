@@ -19,12 +19,12 @@ const config = {
     queueLimit: 0
 };
 
-if (DB_SSL) {
-    config.ssl = {
-        ca: fs.readFileSync(caPath),
-        rejectUnauthorized: true,
-    };
-}
+// if (DB_SSL) {
+//     config.ssl = {
+//         ca: fs.readFileSync(caPath),
+//         rejectUnauthorized: true,
+//     };
+// }
 
 const db = mysql2.createPool(config);
 
