@@ -19,10 +19,9 @@ const db = mysql2.createPool({
 
 });
 if (DB_SSL) {
-    const caPath = path.resolve(__dirname, '../../certs/ca.pem');
     db.ssl = {
         ca: fs.readFileSync(caPath), // dùng CA hợp lệ
-        rejectUnauthorized: false,
+        rejectUnauthorized: true,
     };
 }
 module.exports = db;
